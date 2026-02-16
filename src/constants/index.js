@@ -1,6 +1,6 @@
 
 export const AUTH_CONFIG = {
-  EMAIL_DOMAIN: '@barreautanger.ma',
+  EMAIL_DOMAIN: '@barreautetouan.ma',
   DEFAULT_USERNAME: 'admin',
   STORAGE_KEY: 'isLoggedIn'
 };

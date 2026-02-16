@@ -80,7 +80,7 @@ export const useLawyers = () => {
 
     try {
       const collectionRef = collection(db, lawyerType);
-      const q = query(collectionRef, orderBy('orderNmInt'));
+      const q = query(collectionRef, orderBy('serialNmInt'));
       const snapshot = await getDocs(q);
 
       let allDocs = snapshot.docs.map(docSnap => {
@@ -212,7 +212,7 @@ export const useLawyers = () => {
           return true;
         });
 
-        filtered.sort((a, b) => (a.orderNmInt || 0) - (b.orderNmInt || 0));
+        filtered.sort((a, b) => (a.serialNmInt || 0) - (b.serialNmInt || 0));
 
         const startIndex = (pageNumber - 1) * PAGINATION.ITEMS_PER_PAGE;
         const paginated = filtered.slice(startIndex, startIndex + PAGINATION.ITEMS_PER_PAGE);
@@ -233,7 +233,7 @@ export const useLawyers = () => {
       const collectionRef = collection(db, lawyerType);
 
       if (!hasFilters && pageNumber === 1) {
-        const q = query(collectionRef, orderBy('orderNmInt'), limit(PAGINATION.ITEMS_PER_PAGE));
+        const q = query(collectionRef, orderBy('serialNmInt'), limit(PAGINATION.ITEMS_PER_PAGE));
         const snapshot = await getDocs(q);
         const lawyersData = snapshot.docs.map(d => ({
           id: d.id,
@@ -267,7 +267,7 @@ export const useLawyers = () => {
           return true;
         });
 
-        filtered.sort((a, b) => (a.orderNmInt || 0) - (b.orderNmInt || 0));
+        filtered.sort((a, b) => (a.serialNmInt || 0) - (b.serialNmInt || 0));
 
         const startIndex = (pageNumber - 1) * PAGINATION.ITEMS_PER_PAGE;
         const paginated = filtered.slice(startIndex, startIndex + PAGINATION.ITEMS_PER_PAGE);
@@ -287,7 +287,7 @@ export const useLawyers = () => {
 
       const prevPageLastDoc = lastDocs[`${lawyerType}-${pageNumber - 1}`];
       if (prevPageLastDoc) {
-        const q = query(collectionRef, orderBy('orderNmInt'), startAfter(prevPageLastDoc), limit(PAGINATION.ITEMS_PER_PAGE));
+        const q = query(collectionRef, orderBy('serialNmInt'), startAfter(prevPageLastDoc), limit(PAGINATION.ITEMS_PER_PAGE));
         const snapshot = await getDocs(q);
 
         const lawyersData = snapshot.docs.map(d => ({
@@ -307,7 +307,7 @@ export const useLawyers = () => {
 
       // fallback: fetch bigger chunk and slice client-side
       const skipCount = (pageNumber - 1) * PAGINATION.ITEMS_PER_PAGE;
-      const tempQ = query(collectionRef, orderBy('orderNmInt'), limit(skipCount + PAGINATION.ITEMS_PER_PAGE));
+      const tempQ = query(collectionRef, orderBy('serialNmInt'), limit(skipCount + PAGINATION.ITEMS_PER_PAGE));
       const tempSnapshot = await getDocs(tempQ);
 
       if (tempSnapshot.docs.length === 0) {

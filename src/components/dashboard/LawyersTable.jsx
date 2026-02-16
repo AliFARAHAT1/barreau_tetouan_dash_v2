@@ -100,15 +100,15 @@ export const LawyersTable = ({
             <div className="text-3xl font-bold text-[#134262]">
               {totalCount}
             </div>
-            {filterPercentage < 100 && (
+            {/* {filterPercentage < 100 && (
               <div className="text-sm text-[#CAAA5C] font-bold mt-1">
                 {filterPercentage}% من المجموع
               </div>
-            )}
+            )} */}
           </div>
 
           {/* START Filter محامي/محامية */}
-          <div className="relative mb-5">
+          {/* <div className="relative mb-5">
             <div className="text-base font-bold text-slate-500">الجنس:</div>
             <select
               value={selectedGender}
@@ -122,11 +122,11 @@ export const LawyersTable = ({
               <option value="محامية">محامية</option>
               <option value="محام">محام</option>
             </select>
-          </div>
+          </div> */}
           {/* END Filter محامي/محامية */}
 
           {/* START Filter المدن */}
-          <div className="relative mb-5">
+          {/* <div className="relative mb-5">
             <div className="text-base font-bold text-slate-500">المدينة:</div>
             <select
               value={selectedCity}
@@ -142,11 +142,11 @@ export const LawyersTable = ({
               <option value="العرائش">العرائش</option>
               <option value="القصر الكبير">القصر الكبير</option>
             </select>
-          </div>
+          </div> */}
           {/* END Filter المدن */}
 
           {/* START Filter كيفية الممارسة */}
-          <div className="relative mb-5">
+          {/* <div className="relative mb-5">
             <div className="text-base font-bold text-slate-500">
               كيفية الممارسة:
             </div>
@@ -165,12 +165,12 @@ export const LawyersTable = ({
               <option value="مساكن">مساكن</option>
               <option value="مساعد">مساعد</option>
             </select>
-          </div>
+          </div> */}
           {/* END Filter كيفية الممارسة */}
 
           {/* START Filter تاريخ التسجيل */}
 
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`px-4 py-3 rounded-lg font-medium transition-all flex items-center gap-2 ${hasDateFilters
@@ -269,12 +269,12 @@ export const LawyersTable = ({
                 </div>
               </>
             )}
-          </div>
+          </div> */}
 
           {/* END Filter تاريخ التسجيل */}
 
           {/* START Filter تاريخ الإزدياد */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={() => setShowBirthdateFilters(!showBirthdateFilters)}
               className={`px-4 py-3 rounded-lg font-medium transition-all flex items-center gap-2 ${hasBirthdateFilters
@@ -369,7 +369,7 @@ export const LawyersTable = ({
                 </div>
               </>
             )}
-          </div>
+          </div> */}
           {/* END Filter تاريخ الإزدياد */}
 
           {/* START Search & Reset */}
@@ -415,17 +415,15 @@ export const LawyersTable = ({
             <thead className="bg-gradient-to-r from-[#134262] to-[#0d2f45] text-white">
               <tr>
                 <th className="px-6 py-3 text-center font-bold">الصورة</th>
-                <th className="px-6 py-3 text-center font-bold">الرقم الترتيبي</th>
                 {isUserOffice && (
                   <th className="px-6 py-3 text-center font-bold">
                     الرقم المهني
                   </th>
                 )}
-                <th className="px-6 py-3 text-center font-bold">الاسم الكامل</th>
+                <th className="px-6 py-3 text-center font-bold">الاسم بالعربية</th>
+                <th className="px-6 py-3 text-center font-bold">الاسم بالفرنسية</th>
 
-                {isUserOffice && (
-                  <th className="px-6 py-3 text-center font-bold">المدينة</th>
-                )}
+              
 
                 {!isUserOffice && (
                   <th className="px-6 py-3 text-center font-bold">
@@ -435,12 +433,12 @@ export const LawyersTable = ({
                   <th className="px-6 py-3 text-center font-bold">
                     كيفية الممارسة
                   </th>)}
-                {isUserOffice && (
-                  <th className="px-6 py-3 text-center font-bold">
-                    تفصيل
-                  </th>
-                )}
-                <th className="px-6 py-3 text-center font-bold">العنوان</th>
+              {isUserOffice && (
+                <th className="px-6 py-3 text-center font-bold">
+                  العنوان
+                  </th>)}
+                <th className="px-6 py-3 text-center font-bold">رقم الهاتف</th>
+
 
                 <th className="px-6 py-3 text-center font-bold">
                   تاريخ التسجيل
@@ -476,10 +474,7 @@ export const LawyersTable = ({
                     </div>
                   </td>
 
-                  <td className="px-6 py-3 text-center text-slate-800">
-                    {lawyer.orderNm || "-"}
-                  </td>
-
+                  
                   {isUserOffice && (
                     <td className="px-6 py-3 text-center text-slate-800">
                       {lawyer.serialNm || "-"}
@@ -490,23 +485,20 @@ export const LawyersTable = ({
                     {lawyer.fullNameAr || "-"}
                   </td>
 
-                  {isUserOffice && (
-                    <td className="px-6 py-3 text-center text-slate-800">
-                      {lawyer.city || "-"}
-                    </td>
-                  )}
+                    <td className="px-6 py-3 text-center  text-slate-800">
+                    {lawyer.fullNameFr || "-"}
+                  </td>
+
+
+                
 
                   {!isUserOffice && (
                     <td className="px-6 py-3 text-center text-slate-800">
-                      {lawyer.trainee || "-"}
+                      {lawyer.type || "-"}
                     </td>
                   )}
 
-                  {isUserOffice && (
-                    <td className="px-6 py-3 text-center text-slate-700">
-                      {lawyer.typeOfPractice || "-"}
-                    </td>
-                  )}
+                
 
                   {isUserOffice && (
                     <td className="px-6 py-3 text-center text-slate-700">
@@ -514,9 +506,16 @@ export const LawyersTable = ({
                     </td>
                   )}
 
+                  {isUserOffice && (
                   <td className="px-6 py-3 text-center text-slate-700">
                     {lawyer.officeAdrAr || "-"}
                   </td>
+                  )}
+
+                   <td className="px-6 py-3 text-center text-slate-700">
+                    {lawyer.mobilePhone || "-"}
+                  </td>
+
 
                   <td className="px-6 py-3 text-center text-slate-700">
                     {lawyer.registrationDate || "-"}

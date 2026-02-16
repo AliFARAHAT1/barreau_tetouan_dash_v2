@@ -68,15 +68,12 @@ export const useEditLawyer = () => {
         fullNameAr: data.fullNameAr,
         fullNameFr: data.fullNameFr,
         officeAdrAr: data.officeAdrAr,
-        typeOfPractice: data.typeOfPractice,
         type: data.type,
         email: data.email,
-        city: data.city,
         mobilePhone: data.mobilePhone,
         landlinePhone: data.landlinePhone,
         image: imageUrl,
         updatedAt: new Date(),
-        trainee: data.trainee
       };
 
       await updateDoc(lawyerRef, updateData);

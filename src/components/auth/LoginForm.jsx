@@ -59,7 +59,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-8">
+    <div className="bg-white backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-8">
       <div className="text-center mb-8">
         <div className="flex justify-center">
           <img

@@ -11,14 +11,12 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
     fullNameAr: '',
     fullNameFr: '',
     officeAdrAr: '',
-    typeOfPractice: '',
     type: '',
     email: '',
     city: '',
     mobilePhone: '',
     landlinePhone: '',
     image: '',
-    trainee: ''
   });
 
   const [newImageFile, setNewImageFile] = useState(null);
@@ -33,14 +31,11 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
         fullNameAr: lawyer.fullNameAr || '',
         fullNameFr: lawyer.fullNameFr || '',
         officeAdrAr: lawyer.officeAdrAr || '',
-        typeOfPractice: lawyer.typeOfPractice || '',
         type: lawyer.type || '',
         email: lawyer.email || '',
-        city: lawyer.city || '',
         mobilePhone: lawyer.mobilePhone || '',
         landlinePhone: lawyer.landlinePhone || '',
-        image: lawyer.image || '',
-        trainee: lawyer.trainee || ''
+        image: lawyer.image || ''
       });
       setImagePreview(lawyer.image || '');
     }
@@ -176,6 +171,8 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
                   />
                 </div>
 
+                {isUserOffice && (
+
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-slate-700 mb-2">
                     عنوان المكتب
@@ -188,6 +185,8 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
                     className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-[#CAAA5C] transition-colors"
                   />
                 </div>
+                )}
+
 
                 {!isUserOffice && (
                   <div className="md:col-span-2">
@@ -196,15 +195,15 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
                     </label>
                     <input
                       type="text"
-                      name="officeAdrAr"
-                      value={formData.trainee}
+                      name="type"
+                      value={formData.type}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-[#CAAA5C] transition-colors"
                     />
                   </div>
                 )}
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">
                     المدينة *
                   </label>
@@ -225,9 +224,9 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
                     <option value="العرائش" className="text-slate-700">العرائش</option>
                     <option value="القصر الكبير" className="text-slate-700">القصر الكبير</option>
                   </select>
-                </div>
+                </div> */}
 
-                {isUserOffice && (
+                {/* {isUserOffice && (
                   <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">
                         كيفية الممارسة *
@@ -251,12 +250,12 @@ export const EditLawyerModal = ({ lawyer, collectionName, onClose, onSave, curre
                         <option value="مساعد" className="text-slate-700">مساعد</option>
                       </select>
                   </div>
-                )}
+                )} */}
 
                 {isUserOffice && (
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">
-                        كيفية الممارسة (تفصيل)
+                        كيفية الممارسة
                     </label>
                     <input
                       type="text"
