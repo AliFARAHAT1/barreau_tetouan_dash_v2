@@ -10,6 +10,7 @@ export const LoginForm = () => {
   const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ✅ added
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,7 +29,7 @@ export const LoginForm = () => {
 
       if (adminDoc.exists()) {
         const role = adminDoc.data().role;
-        if (role === 0 || role === 2) {
+        if (role === 0 || role === 1) {
           login();
         } else {
           setError("لا تملك صلاحيات الدخول لهذا النظام");
@@ -75,53 +76,54 @@ export const LoginForm = () => {
       </h2>
 
       <div className="space-y-6">
-        <div>
-          <div className="relative">
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="اسم المستخدم"
-              className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none  text-right"
-            />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3]">
-              <Users size={20} />
-            </div>
+        {/* Username */}
+        <div className="relative">
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="اسم المستخدم"
+            className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none text-right"
+          />
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3]">
+            <Users size={20} />
           </div>
         </div>
 
-        <div>
-          <div className="relative">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="كلمة المرور"
-              className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none  text-right"
-            />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3]">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </div>
+        {/* Password */}
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}   // ✅ changed
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="كلمة المرور"
+            className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none text-right"
+          />
+          <div
+            onClick={() => setShowPassword(!showPassword)}   // ✅ added
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3] cursor-pointer"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              />
+            </svg>
           </div>
         </div>
 
@@ -131,16 +133,10 @@ export const LoginForm = () => {
           </div>
         )}
 
-        {/* <div className="text-center">
-          <a href="#" className="text-[#CAAA5C] text-sm hover:text-[#b8954a]">
-            هل نسيت كلمة مرور؟
-          </a>
-        </div> */}
-
         <button
           onClick={handleLogin}
           disabled={isLoading}
-          className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-green-600 text-white py-3 rounded-xl font-bold transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
