@@ -41,7 +41,7 @@ export const Pagination = ({ currentPage, totalItems, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-6 py-3 bg-gradient-to-r from-[#CAAA5C] to-[#b8954a] text-white rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg"
+        className="px-6 py-3 bg-[#0969b3] text-white rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg"
       >
         السابق
       </button>
@@ -56,7 +56,7 @@ export const Pagination = ({ currentPage, totalItems, onPageChange }) => {
               onClick={() => onPageChange(page)}
               className={`w-12 h-12 rounded-xl font-bold transition-all duration-300 ${
                 currentPage === page
-                  ? 'bg-gradient-to-r from-[#CAAA5C] to-[#b8954a] text-white shadow-lg scale-110'
+                  ? 'bg-[#0969b3] text-white shadow-lg scale-110'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -69,14 +69,14 @@ export const Pagination = ({ currentPage, totalItems, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-6 py-3 bg-gradient-to-r from-[#CAAA5C] to-[#b8954a] text-white rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg"
+        className="px-6 py-3 bg-[#0969b3] text-white rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg"
       >
         التالي
       </button>
 
       <div className="mr-4 px-4 py-2 bg-slate-100 rounded-xl">
         <span className="text-sm text-slate-600">
-          صفحة <span className="font-bold text-[#CAAA5C]">{currentPage}</span> من <span className="font-bold">{totalPages}</span>
+          صفحة <span className="font-bold text-[#0969b3]">{currentPage}</span> من <span className="font-bold">{totalPages}</span>
         </span>
         <span className="text-sm text-slate-500 mr-3">
           ({totalItems} محامي)

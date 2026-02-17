@@ -78,8 +78,8 @@ export const LawyersTable = ({
             <button
               onClick={() => onTypeChange(COLLECTIONS.USERS)}
               className={`px-6 py-3 font-bold rounded-lg transition-colors ${isUserOffice
-                  ? "bg-[#CAAA5C] text-white shadow-md"
-                  : "text-slate-600 hover:bg-slate-50"
+                  ? "bg-[#0969b3] text-white shadow-md"
+                  : "text-[#0969b3] hover:bg-slate-50"
                 }`}
             >
               المحامين الرسميين
@@ -87,8 +87,8 @@ export const LawyersTable = ({
             <button
               onClick={() => onTypeChange(COLLECTIONS.USERS_TRAINEE)}
               className={`px-6 py-3 font-bold rounded-lg transition-colors ${!isUserOffice
-                  ? "bg-[#CAAA5C] text-white shadow-md"
-                  : "text-slate-600 hover:bg-slate-50"
+                  ? "bg-[#0969b3] text-white shadow-md"
+                  : "text-[#0969b3] hover:bg-slate-50"
                 }`}
             >
               المحامين المتمرنين
@@ -96,8 +96,8 @@ export const LawyersTable = ({
           </div>
 
           <div className="text-center">
-            <div className="text-base text-slate-600 mb-1">المجموع</div>
-            <div className="text-3xl font-bold text-[#134262]">
+            <div className="text-base text-black mb-1">المجموع</div>
+            <div className="text-3xl font-bold text-[#0969b3]">
               {totalCount}
             </div>
             {/* {filterPercentage < 100 && (
@@ -137,7 +137,7 @@ export const LawyersTable = ({
                 }`}
             >
               <option value="الكل">الكل</option>
-              <option value="طنجة">طنجة</option>
+              <option value="تطوان">تطوان</option>
               <option value="أصيلة">أصيلة</option>
               <option value="العرائش">العرائش</option>
               <option value="القصر الكبير">القصر الكبير</option>
@@ -412,7 +412,7 @@ export const LawyersTable = ({
           <div className="text-center py-20 text-slate-500">لا توجد بيانات</div>
         ) : (
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#134262] to-[#0d2f45] text-white">
+            <thead className="bg-[#0969b3] text-white">
               <tr>
                 <th className="px-6 py-3 text-center font-bold">الصورة</th>
                 {isUserOffice && (
@@ -525,7 +525,7 @@ export const LawyersTable = ({
                     <div className="flex items-center justify-center gap-2">
                       <button
                         onClick={() => handleEdit(lawyer)}
-                        className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors"
+                        className="p-2 text-green-600 hover:bg-blue-100 rounded-lg transition-colors"
                         title="تعديل"
                       >
                         <Edit2 size={18} />

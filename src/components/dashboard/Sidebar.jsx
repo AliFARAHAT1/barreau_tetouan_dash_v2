@@ -31,7 +31,7 @@ export const Sidebar = () => {
             <div className="absolute -top-2 -left-2 -right-2 -bottom-2 border-3 border-[#CAAA5C] rounded-full"></div>
           </div>
         </div>
-        <div className="text-[#CAAA5C] text-sm">هيئة المحامين بطنجة</div>
+        <div className="text-[#CAAA5C] text-sm">هيئة المحامين بتطوان</div>
       </div>
 
       <nav className="space-y-2">

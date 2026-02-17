@@ -196,7 +196,7 @@ export const DashboardPage = () => {
 
         <button
           onClick={handleLogout}
-          className="w-72 mt-8 flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-[#CAAA5C] to-[#b8954a] rounded-lg hover:from-[#b8954a] hover:to-[#a68440] transition-all duration-300 shadow-lg"
+          className="w-72 mt-8 flex items-center justify-center gap-3 px-4 py-3 bg-red-600 rounded-lg text-white hover:from-[#b8954a] hover:to-[#a68440] transition-all duration-300 shadow-lg"
         >
           <span className="font-medium">تسجيل الخروج</span>
           <LogOut size={20} />

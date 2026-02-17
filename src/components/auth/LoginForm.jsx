@@ -83,9 +83,9 @@ export const LoginForm = () => {
               onChange={(e) => setUsername(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="اسم المستخدم"
-              className="w-full px-4 py-3 pr-12 bg-white/90 border-0 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#CAAA5C] text-right"
+              className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none  text-right"
             />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#CAAA5C]">
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3]">
               <Users size={20} />
             </div>
           </div>
@@ -99,9 +99,9 @@ export const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="كلمة المرور"
-              className="w-full px-4 py-3 pr-12 bg-white/90 border-0 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#CAAA5C] text-right"
+              className="w-full px-4 py-3 pr-12 bg-white/90 border-2 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none  text-right"
             />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#CAAA5C]">
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#0969b3]">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -131,16 +131,16 @@ export const LoginForm = () => {
           </div>
         )}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <a href="#" className="text-[#CAAA5C] text-sm hover:text-[#b8954a]">
             هل نسيت كلمة مرور؟
           </a>
-        </div>
+        </div> */}
 
         <button
           onClick={handleLogin}
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-[#CAAA5C] to-[#b8954a] text-white py-3 rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:from-[#b8954a] hover:to-[#a68440] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
